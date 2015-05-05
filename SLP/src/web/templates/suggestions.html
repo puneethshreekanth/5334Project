@@ -46,7 +46,7 @@ html, body, #map-canvas {
 
 		function codeLatLng() {
 			{% for key, val in obj.items() %}
-			var input = '{{val}}';
+			var input = "{{val.decode('utf-8')}}"
 			
 			var latlngStr = input.split(',', 2);
 			var lng = parseFloat(latlngStr[0]);
@@ -58,7 +58,7 @@ html, body, #map-canvas {
 			});
 			(function(){
 				var infowindow = new google.maps.InfoWindow();
-				var address = '{{key}}';	
+				var address = "{{key.decode('utf-8')}}"
 				infowindow.setContent(address);
 				infowindow.open(map, marker);
 			})();			

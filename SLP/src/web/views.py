@@ -7,35 +7,42 @@ Created on May 3, 2015
 from web import web
 from flask.templating import render_template
 from flask import request
-from dm import jsontotable
 
+#Route create the mapping URLs to their respective functions
 @web.route('/')
 @web.route('/index')
-def index():
-#     return "Hello, World!"
-    user = {'nickname':'Puneeth',
-            'friend': 'Nishanth'}  # fake user
-      
+def index():      
     return render_template('index.html',
-                           title='Yelp Dataset Challenge',
-                           user=user)
+                           title='Yelp Dataset Challenge')
     
 @web.route('/suggestions', methods=['POST'])
 def suggestions():
     userid = request.form['userid']
     print(userid)
-    fpath = '/home/puneeth/workspace/SLP/src/web/templates/'
+    fpath = '/home/ubuntu/datamining/SLP/src/web/templates/'
     
-    if(userid == 'volvo'):
-        fname = 'prediction_output_1.txt'
-    elif(userid == 'saab'):
-        fname = 'prediction_output_2.txt'
-    elif(userid == 'mercedes'):
-        fname = 'prediction_output_3.txt'
-    elif(userid == 'audi'):
-        fname = 'prediction_output_4.txt'
+    if(userid == 'emily'):
+        fname = 'prediction_output_Emily.txt'
+    elif(userid == 'norm'):
+        fname = 'prediction_output_Norm.txt'
+    elif(userid == 'gabi'):
+        fname = 'prediction_output_Gabi.txt'
+    elif(userid == 'j'):
+        fname = 'prediction_output_J.txt'
+    elif(userid == 'karen'):
+        fname = 'prediction_output_Karen.txt'
+    elif(userid == 'jennifer'):
+        fname = 'prediction_output_Jennifer.txt'
+    elif(userid == 'ken'):
+        fname = 'prediction_output_Ken.txt'
+    elif(userid == 'felicia'):
+        fname = 'prediction_output_Felicia.txt'
+    elif(userid == 'mike'):
+        fname = 'prediction_output_Mike.txt'
+    elif(userid == 'jessica'):
+        fname = 'prediction_output_Jessica.txt'
     
-    f = open(fpath+fname, mode='r', encoding='utf-8')
+    f = open(fpath+fname, mode='r')
     j = {}
     for line in f:
         key, lat, long = line.split(',')
