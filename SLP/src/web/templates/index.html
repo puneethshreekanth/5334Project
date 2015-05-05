@@ -19,19 +19,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js">
 	
 </script>
-
-<script>
-	function validateForm() {
-		var x = document.forms["myForm"]["userid"].value;
-		if (x == null || x == "") {
-			alert("URL must be filled out");
-			return false;
-		}
-
-		return true;
-	}
-</script>
-
 </head>
 <body>
 	<div class='container'>
@@ -41,8 +28,7 @@
 				<br>
 				<div class="account-wall" role="form" method="POST" action="">
 					<form class="form-signin" action="suggestions" method="post"
-						name="myForm" enctype='multipart/form-data'
-						onsubmit="return validateForm()">
+						name="myForm" enctype='multipart/form-data'>
 						<select class='form-control' name="userid">
 							<option value="emily">Emily</option>
 							<option value="norm">Norm</option>
